@@ -8,15 +8,6 @@ A collection of AI agent skills focused on brand building services. Built for br
 npx skills add arnabbagxd/brand-building-skills
 ```
 
-### Copilot CLI
-
-Install the extension under `~/.copilot/extensions/brand-building-skills/` so Copilot can use it
-across projects. The extension bundles the canonical `skills/*/SKILL.md` files.
-
-Use the `brand_skill` tool to list available workflows or load a specific skill. The extension
-is only a thin lookup layer; the markdown skills remain the source of truth. Start new projects
-with `brand-context` so subsequent workflows share the saved `.agents/brand-context.md`.
-
 **Contributions welcome!** Found a way to improve a skill or have a new one to add? Open a PR.
 
 ## What are Skills?
@@ -120,6 +111,30 @@ Skills cross-reference each other:
 ### Install with Claude Code
 
 Add these skills to your Claude Code project by pointing to this repository in your project settings, or copy the skills directory into your project.
+
+### Install with Copilot CLI
+
+For one project, clone this repository and start Copilot from its root. Copilot discovers the
+extension automatically:
+
+```bash
+git clone https://github.com/pourmonfared-azimi/Brand-building-skills
+cd Brand-building-skills
+copilot
+```
+
+For all projects, copy the extension and skills into Copilot's user extension directory:
+
+```powershell
+$destination = "$HOME\.copilot\extensions\brand-building-skills"
+New-Item -ItemType Directory -Force "$destination\skills" | Out-Null
+Copy-Item ".github\extensions\brand-building-skills\extension.mjs" "$destination\extension.mjs"
+Copy-Item "skills\*" "$destination\skills" -Recurse -Force
+```
+
+Restart Copilot or run `/clear`, then use `brand_skill` with `action: "list"` to see available
+workflows, or with `action: "read"` and a skill name such as `brand-context` to load one. Start
+new projects with `brand-context` so subsequent workflows share `.agents/brand-context.md`.
 
 ### Use with any Agent Skills-compatible tool
 
