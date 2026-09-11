@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/marketplace.schema.json",
+  "name": "brand-building",
+  "metadata": {
+    "description": "Brand strategy and marketing plugins for GitHub Copilot.",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "Arnab Bag",
+    "url": "https://github.com/arnabbagxd"
+  },
+  "plugins": [
+    {
+      "name": "brand-building",
+      "source": "./.github/plugin",
+      "description": "Brand strategy and marketing workflows for founders, strategists, and agencies.",
+      "version": "1.0.0"
+    }
+  ]
+}

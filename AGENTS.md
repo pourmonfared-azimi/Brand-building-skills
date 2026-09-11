@@ -16,6 +16,10 @@ This repository contains **Agent Skills** for AI agents following the [Agent Ski
 brand-building-skills/
 ├── .claude-plugin/
 │   └── marketplace.json   # Claude Code plugin marketplace manifest
+├── .github/
+│   └── plugin/
+│       ├── marketplace.json # GitHub Copilot custom marketplace
+│       └── plugin.json      # Brand Building Copilot plugin manifest
 ├── skills/                # Agent Skills
 │   └── skill-name/
 │       ├── SKILL.md       # Required skill file
@@ -35,7 +39,7 @@ brand-building-skills/
 - `name` is 1-64 chars, lowercase alphanumeric and hyphens only
 - `description` is 1-1024 characters
 
-Run the validation script:
+Run the validation script (skills and Copilot manifests):
 ```bash
 bash validate-skills.sh
 ```

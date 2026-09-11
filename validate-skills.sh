@@ -8,6 +8,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 SKILLS_DIR="skills"
+PLUGIN_DIR=".github/plugin"
 ISSUES=0
 WARNINGS=0
 PASSED=0
@@ -81,6 +82,25 @@ for skill_dir in "$SKILLS_DIR"/*/; do
 
     echo ""
 done
+
+echo "Validating Copilot plugin manifests"
+echo "==================================="
+
+if node -e "const fs=require('fs'),path=require('path'); const plugin=JSON.parse(fs.readFileSync('${PLUGIN_DIR}/plugin.json','utf8')); const marketplace=JSON.parse(fs.readFileSync('${PLUGIN_DIR}/marketplace.json','utf8')); if (!plugin.name || !plugin.version || !plugin.description || !Array.isArray(plugin.skills)) throw new Error('plugin.json is missing required plugin fields'); if (!marketplace.name || !Array.isArray(marketplace.plugins)) throw new Error('marketplace.json is missing required marketplace fields'); const entry=marketplace.plugins.find(p=>p.name===plugin.name); if (!entry || entry.source !== './.github/plugin') throw new Error('marketplace entry does not point to the plugin'); for (const skillPath of plugin.skills) { const root=path.resolve('${PLUGIN_DIR}',skillPath); if (!fs.existsSync(root)) throw new Error('plugin skill path does not exist: '+skillPath); }"; then
+    echo -e "  ${GREEN}PASS${NC}: plugin and marketplace JSON are valid"
+    ((PASSED++))
+else
+    echo -e "  ${RED}FAIL${NC}: plugin or marketplace JSON is invalid"
+    ((ISSUES++))
+fi
+
+if [ -d "$PLUGIN_DIR" ] && [ -d "$SKILLS_DIR" ]; then
+    echo -e "  ${GREEN}PASS${NC}: plugin skill path resolves to $SKILLS_DIR"
+    ((PASSED++))
+else
+    echo -e "  ${RED}FAIL${NC}: plugin skill path does not resolve"
+    ((ISSUES++))
+fi
 
 echo "=============================="
 echo -e "${GREEN}Passed:${NC}   $PASSED"

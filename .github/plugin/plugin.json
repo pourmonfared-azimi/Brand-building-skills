@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "brand-building",
+  "description": "Brand strategy and marketing workflows for founders, strategists, and agencies.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arnab Bag",
+    "url": "https://github.com/arnabbagxd"
+  },
+  "repository": "https://github.com/arnabbagxd/Brand-building-skills",
+  "license": "MIT",
+  "keywords": [
+    "brand-strategy",
+    "brand-marketing",
+    "naming",
+    "positioning",
+    "messaging",
+    "copilot"
+  ],
+  "skills": [
+    "../../skills/"
+  ]
+}

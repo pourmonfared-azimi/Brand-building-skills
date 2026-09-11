@@ -130,6 +130,21 @@ npx skills add arnabbagxd/Brand-building-skills
 After installation, ask Copilot for a brand workflow normally. Start new projects with
 `brand-context` so subsequent workflows share `.agents/brand-context.md`.
 
+### Install as a GitHub Copilot Plugin
+
+This repository also provides a GitHub Copilot custom marketplace at
+`.github/plugin/marketplace.json`. In the GitHub Copilot App, open the plugins or marketplace
+view, choose **Add marketplace**, and enter:
+
+```text
+https://github.com/arnabbagxd/Brand-building-skills
+```
+
+Select the `brand-building` marketplace, install the `brand-building` plugin, and enable it for
+your Copilot sessions. The plugin exposes the existing 29 skills without copying or rewriting
+them. Copilot loads a skill when its description matches the task; start with `brand-context`
+for a new brand project.
+
 ### Use with any Agent Skills-compatible tool
 
 Skills install to `.agents/skills/` following the [Agent Skills specification](https://agentskills.io).
