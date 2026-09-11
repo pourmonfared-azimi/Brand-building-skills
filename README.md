@@ -1,12 +1,22 @@
 # Brand Building Skills for AI Agents
 
-A collection of AI agent skills focused on brand building services. Built for brand strategists, agency owners, and founders who want AI coding agents to help with brand strategy, naming, identity, voice, positioning, messaging, and launch. Works with Claude Code, Cursor, Windsurf, and any agent that supports the [Agent Skills spec](https://agentskills.io).
+A collection of AI agent skills focused on brand building services. Built for brand strategists, agency owners, and founders who want AI coding agents to help with brand strategy, naming, identity, voice, positioning, messaging, and launch. Works with Claude Code, Copilot CLI, Cursor, Windsurf, and any agent that supports the [Agent Skills spec](https://agentskills.io).
 
 ## Install
 
 ```bash
 npx skills add arnabbagxd/brand-building-skills
 ```
+
+### Copilot CLI
+
+Clone or copy this repository into a project workspace. Copilot can use the canonical
+`skills/*/SKILL.md` files through the project extension at
+`.github/extensions/brand-building-skills/extension.mjs`.
+
+Use the `brand_skill` tool to list available workflows or load a specific skill. The extension
+is only a thin lookup layer; the markdown skills remain the source of truth. Start new projects
+with `brand-context` so subsequent workflows share the saved `.agents/brand-context.md`.
 
 **Contributions welcome!** Found a way to improve a skill or have a new one to add? Open a PR.
 

@@ -4,7 +4,7 @@ Guidelines for AI agents working in this repository.
 
 ## Repository Overview
 
-This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md). Skills install to `.agents/skills/` (the cross-agent standard). This repo also serves as a **Claude Code plugin marketplace** via `.claude-plugin/marketplace.json`.
+This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md). Skills install to `.agents/skills/` (the cross-agent standard). This repo also serves as a **Claude Code plugin marketplace** via `.claude-plugin/marketplace.json` and includes an optional Copilot CLI extension under `.github/extensions/`.
 
 - **Name**: Brand Building Skills
 - **GitHub**: [brand-building-skills](https://github.com/arnabbagxd/brand-building-skills)
@@ -16,6 +16,10 @@ This repository contains **Agent Skills** for AI agents following the [Agent Ski
 brand-building-skills/
 ├── .claude-plugin/
 │   └── marketplace.json   # Claude Code plugin marketplace manifest
+├── .github/
+│   └── extensions/
+│       └── brand-building-skills/
+│           └── extension.mjs # Optional Copilot CLI skill lookup tool
 ├── skills/                # Agent Skills
 │   └── skill-name/
 │       ├── SKILL.md       # Required skill file
@@ -87,6 +91,15 @@ skills/skill-name/
 ## Foundation Skill
 
 `brand-context` is the foundation skill — every other skill reads it first to understand the brand, audience, and positioning before doing anything.
+
+## Copilot CLI
+
+Copilot discovers the project extension from `.github/extensions/brand-building-skills/extension.mjs`.
+The `brand_skill` tool lists the available skills or reads a canonical `SKILL.md`; it does not
+duplicate or generate skill content. Use `brand-context` first for a new brand project.
+
+The extension is local-only and does not request environment variables or make network calls.
+After changing it, reload extensions in Copilot with `/clear` or the extension reload command.
 
 ## Contributing
 
