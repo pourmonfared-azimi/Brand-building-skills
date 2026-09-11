@@ -118,13 +118,13 @@ Copilot supports the same `SKILL.md` format. Add this repository's skills with t
 skills command:
 
 ```text
-/skills add https://github.com/pourmonfared-azimi/Brand-building-skills
+/skills add https://github.com/arnabbagxd/Brand-building-skills
 ```
 
 Alternatively, use the cross-agent installer:
 
 ```bash
-npx skills add pourmonfared-azimi/Brand-building-skills
+npx skills add arnabbagxd/Brand-building-skills
 ```
 
 After installation, ask Copilot for a brand workflow normally. Start new projects with
