@@ -114,27 +114,21 @@ Add these skills to your Claude Code project by pointing to this repository in y
 
 ### Install with Copilot CLI
 
-For one project, clone this repository and start Copilot from its root. Copilot discovers the
-extension automatically:
+Copilot supports the same `SKILL.md` format. Add this repository's skills with the native
+skills command:
+
+```text
+/skills add https://github.com/pourmonfared-azimi/Brand-building-skills
+```
+
+Alternatively, use the cross-agent installer:
 
 ```bash
-git clone https://github.com/pourmonfared-azimi/Brand-building-skills
-cd Brand-building-skills
-copilot
+npx skills add pourmonfared-azimi/Brand-building-skills
 ```
 
-For all projects, copy the extension and skills into Copilot's user extension directory:
-
-```powershell
-$destination = "$HOME\.copilot\extensions\brand-building-skills"
-New-Item -ItemType Directory -Force "$destination\skills" | Out-Null
-Copy-Item ".github\extensions\brand-building-skills\extension.mjs" "$destination\extension.mjs"
-Copy-Item "skills\*" "$destination\skills" -Recurse -Force
-```
-
-Restart Copilot or run `/clear`, then use `brand_skill` with `action: "list"` to see available
-workflows, or with `action: "read"` and a skill name such as `brand-context` to load one. Start
-new projects with `brand-context` so subsequent workflows share `.agents/brand-context.md`.
+After installation, ask Copilot for a brand workflow normally. Start new projects with
+`brand-context` so subsequent workflows share `.agents/brand-context.md`.
 
 ### Use with any Agent Skills-compatible tool
 
