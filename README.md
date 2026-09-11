@@ -10,9 +10,8 @@ npx skills add arnabbagxd/brand-building-skills
 
 ### Copilot CLI
 
-Clone or copy this repository into a project workspace. Copilot can use the canonical
-`skills/*/SKILL.md` files through the project extension at
-`.github/extensions/brand-building-skills/extension.mjs`.
+Install the extension under `~/.copilot/extensions/brand-building-skills/` so Copilot can use it
+across projects. The extension bundles the canonical `skills/*/SKILL.md` files.
 
 Use the `brand_skill` tool to list available workflows or load a specific skill. The extension
 is only a thin lookup layer; the markdown skills remain the source of truth. Start new projects
